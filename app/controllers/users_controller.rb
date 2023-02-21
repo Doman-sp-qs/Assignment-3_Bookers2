@@ -8,11 +8,6 @@ class UsersController < ApplicationController
     @post_book = Book.new
   end
   
-  def create
-    
-    
-  end
-  
   def show
     @user = User.find(params[:id])
     
@@ -25,7 +20,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-    
+    @user = User.find(params[:id])
   end
   
   
