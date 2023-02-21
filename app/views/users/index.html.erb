@@ -1,2 +1,47 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<!--ユーザー情報-->
+<h2>User info</h2>
+<table>
+  <tr>
+    <th>name</th>
+    <th><%= @user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= @user.introduction %></th>
+  </tr>
+</table>
+
+<!--新規投稿フォーム-->
+<h2>New book</h2>
+<%= form_with model: @post_book, url: books_path, method: :post do |f| %>
+  <div class="form-group">
+    <h4>Title名</h4>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <h4>Opinion</h4>
+    <%= f.text_area :body %>
+  </div>
+  <div class="form-group">
+    <%= f.submit 'Create Book' %>
+  </div>
+<% end %>
+
+<!--ユーザー一覧-->
+<h2>Users</h2>
+<table>
+  <tr>
+    <th>image</th>
+    <th>name</th>
+    <th></th>
+  </tr>
+  
+  <% @users.each do |user| %>
+    <tr>
+      <td></td>
+      <td><%= user.name %></td>
+      <td><%= link_to "Show", user_path(user.id) %></td>
+    </tr>
+  <% end %>
+  
+</table>
