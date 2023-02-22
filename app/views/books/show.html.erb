@@ -1,18 +1,5 @@
 <!--ユーザー情報-->
-<h2>User info</h2>
-<%= image_tag @user.get_profile_image(100, 100) %>
-<table>
-  <tr>
-    <th>name</th>
-    <th><%= @user.name %></th>
-  </tr>
-  <tr>
-    <th>introduction</th>
-    <th><%= @user.introduction %></th>
-  </tr>
-</table>
-
-<%= link_to "Edit Profile", edit_user_path(@user.id) %>
+<%= render 'users/info', user:@user %>
 
 <!--新規投稿フォーム-->
 <h2>New book</h2>
